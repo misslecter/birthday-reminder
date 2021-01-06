@@ -1,11 +1,13 @@
-[
-  {
-    "id": 1,
-    "name": "Dad",
-    "birthday": {
-      "day": 27,
-      "month": 8,
-      "year": 1967
+{
+  "birthdays": [
+    {
+      "id": 1,
+      "name": "Dad",
+      "birthday": {
+        "day": 27,
+        "month": 8,
+        "year": 1967
+      }
     }
-  }
-]
+  ]
+}

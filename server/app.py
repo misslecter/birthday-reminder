@@ -11,8 +11,8 @@ def create_app() -> Flask:
     def configure_api():
         api = Api(
             doc='/doc/',
-            version='0.3',
-            title='TX Matching API'
+            version='0.1',
+            title='Birthdays API'
         )
         api.init_app(app, add_specs=True)
         api.add_namespace(birthdays_api, path=BIRTHDAYS_NAMESPACE)
