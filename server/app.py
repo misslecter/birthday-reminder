@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_restx import Api, Namespace
 
 BIRTHDAYS_NAMESPACE = '/birthdays'
@@ -22,7 +22,23 @@ def create_app() -> Flask:
         def index_html():
             return render_template('index.html')
 
+    def enable_cors():
+        @app.after_request
+        def add_headers(response):
+            allowed_origins = {
+                'http://localhost:1234',
+                'https://localhost:1234',
+                'https://misslecter.github.io/birthday-reminder/',
+            }
+            origin = request.headers.get('origin')
+            if origin in allowed_origins:
+                response.headers.add('Access-Control-Allow-Origin', origin)
+                response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+                response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT')
+            return response
+
     with app.app_context():
         configure_index()
+        enable_cors()
         configure_api()
         return app
