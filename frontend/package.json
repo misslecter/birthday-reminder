@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "assets/js/index.js",
   "scripts": {
-    "serve": "parcel serve index.html",
+    "serve": "parcel serve index.html --https",
     "build": "parcel build index.html --out-dir docs --public-url . && rm -rf ../docs/ && cp -R docs/ ../docs",
     "push-gh-pages": "push-dir --dir=docs --branch=gh-pages --cleanup --verbose"
   },
