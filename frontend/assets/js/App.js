@@ -3,10 +3,6 @@ export class App {
   apiKey;
   userID;
 
-  appId = 400741717660932;
-  appSecret = 'd9d88702b63054870e4f1cd8c3283309';
-  redirectUrl = 'https://localhost:1234/';
-
   async init() {
 
     console.log('Init');
