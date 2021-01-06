@@ -13,6 +13,20 @@ export class App {
 
     this.initFacebookLogin();
     this.initLoginState();
+
+    this.getSvatek();
+  }
+
+  getSvatek() {
+    fetch('https://api.abalin.net/today?country=cz').then(res => res.json()).then(json => {
+      console.log(json, json.data.namedays.cz);
+
+      if (json.data && json.data.namedays && json.data.namedays.cz) {
+        const today = new Date();
+        const container = document.querySelector('[data-js-selector=\'name-day\']');
+        container.innerHTML = `Today is ${today.getDate()}.${today.getMonth() + 1}., name of the day is ${json.data.namedays.cz}`;
+      }
+    });
   }
 
   initLoginState() {
