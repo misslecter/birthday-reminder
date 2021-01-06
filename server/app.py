@@ -28,7 +28,7 @@ def create_app() -> Flask:
             allowed_origins = {
                 'http://localhost:1234',
                 'https://localhost:1234',
-                'https://misslecter.github.io/birthday-reminder/',
+                'https://misslecter.github.io',
             }
             origin = request.headers.get('origin')
             if origin in allowed_origins:
