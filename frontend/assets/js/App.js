@@ -15,6 +15,8 @@ export class App {
     this.initLoginState();
 
     this.getSvatek();
+
+    this.getBirthdays();
   }
 
   getSvatek() {
@@ -25,6 +27,18 @@ export class App {
         const today = new Date();
         const container = document.querySelector('[data-js-selector=\'name-day\']');
         container.innerHTML = `Today is ${today.getDate()}.${today.getMonth() + 1}., name of the day is ${json.data.namedays.cz}`;
+      }
+    });
+  }
+
+  getBirthdays() {
+    fetch('https://birthday-reminder-api.herokuapp.com/birthdays').then(res => res.json()).then(json => {
+      const birthdays = json.birthdays;
+      if (birthdays && birthdays.length) {
+        const container = document.querySelector('[data-js-selector=\'birthdays\']');
+        for (const b of birthdays) {
+          container.insertAdjacentHTML('beforeend', `<li>${b.name}, ${b.birthday.day}.${b.birthday.month}</li>`);
+        }
       }
     });
   }
