@@ -7,7 +7,7 @@
   "main": "assets/js/index.js",
   "scripts": {
     "serve": "parcel serve index.html",
-    "build": "parcel build index.html --out-dir docs --public-url .",
+    "build": "parcel build index.html --out-dir docs --public-url . && cp -R docs/ ../docs",
     "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "devDependencies": {
