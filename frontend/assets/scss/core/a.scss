@@ -1,0 +1,11 @@
+a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: $primary;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom-color: transparent;
+  }
+}

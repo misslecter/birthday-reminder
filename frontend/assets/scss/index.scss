@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap');
+
+// Definitions
+@import "definitions/colors";
+@import "definitions/sizes";
+@import "definitions/fonts";
+@import "definitions/animations";
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Core
+@import "core/html";
+@import "core/body";
+@import "core/a";
+@import "core/headings";
+@import "core/section";
+@import "core/p";
+@import "core/strong";
+
+// Parts
+@import "parts/buttons";
+@import "parts/burger";
+@import "parts/image";
+@import "parts/social";
+@import "parts/owl-nav";
+@import "parts/owl-dots";

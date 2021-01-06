@@ -1,0 +1,29 @@
+$primary: $blue;
+$secondary: $light-blue;
+$body-bg: $white;
+$body-color: $dark-blue;
+$font-weight-base: 300;
+$font-family-base: 'Poppins', sans-serif;
+$font-family-secondary: 'Archia', sans-serif;
+
+// Rounded corners
+$border-radius-lg: 30px;
+$box-shadow-lg: 0 0 15px 0 rgba($dark-blue, 0.1);
+
+// Buttons
+$btn-border-radius: 15px;
+$btn-font-weight: 700;
+$btn-font-size: 14px;
+$btn-line-height: 50px;
+$btn-padding-x: 20px;
+$btn-border-width: 2px;
+
+// List group
+$list-group-active-color: inherit;
+$list-group-action-color: inherit;
+$list-group-active-bg: transparent;
+$list-group-action-active-bg: transparent;
+$list-group-bg: transparent;
+$list-group-hover-bg: transparent;
+$list-group-item-padding-y: 0;
+$list-group-item-padding-x: 0;

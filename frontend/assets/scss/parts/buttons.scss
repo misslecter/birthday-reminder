@@ -1,0 +1,28 @@
+.btn {
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  &-outline {
+
+    &-white {
+      color: $white;
+      border-color: $white;
+      background-color: transparent;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        color: $primary;
+        background-color: $white;
+        border-color: $white;
+        //background-color: rgba($white, 0.1);
+      }
+    }
+  }
+}
+
+.btn, button {
+  &:focus {
+    outline: none;
+  }
+}
