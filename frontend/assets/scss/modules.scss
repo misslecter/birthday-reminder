@@ -1,0 +1,61 @@
+main {
+  padding: 30px 0;
+  flex: 1;
+
+  .container {
+    position: relative;
+  }
+
+  .card {
+    color: $gray-900;
+    margin-bottom: 30px;
+
+    &-holder {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 260px;
+    }
+
+    &-header {
+      font-weight: 900;
+    }
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1, p {
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  width: calc(100% - 260px);
+}
+
+.list-group {
+  padding-right: 30px;
+
+  li {
+    color: $gray-900;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+
+  a {
+    color: $white;
+  }
+}

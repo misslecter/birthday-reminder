@@ -4,14 +4,10 @@ export class App {
   userID;
 
   async init() {
-
-    console.log('Init');
-
     this.initFacebookLogin();
     this.initLoginState();
 
     this.getSvatek();
-
     this.getBirthdays();
   }
 
@@ -22,7 +18,7 @@ export class App {
       if (json.data && json.data.namedays && json.data.namedays.cz) {
         const today = new Date();
         const container = document.querySelector('[data-js-selector=\'name-day\']');
-        container.innerHTML = `Today is ${today.getDate()}.${today.getMonth() + 1}., name of the day is ${json.data.namedays.cz}`;
+        container.innerHTML = `Today is <strong>${today.getDate()}.${today.getMonth() + 1}.</strong><br>Name of the day is <strong>${json.data.namedays.cz}</strong>`;
       }
     });
   }
@@ -33,7 +29,7 @@ export class App {
       if (birthdays && birthdays.length) {
         const container = document.querySelector('[data-js-selector=\'birthdays\']');
         for (const b of birthdays) {
-          container.insertAdjacentHTML('beforeend', `<li>${b.name}, ${b.birthday.day}.${b.birthday.month}</li>`);
+          container.insertAdjacentHTML('beforeend', `<li class="list-group-item"><span>${b.name}</span><strong>${b.birthday.day}.${b.birthday.month}.</strong></li>`);
         }
       }
     });
@@ -43,9 +39,15 @@ export class App {
     window.checkLoginState = function () {
       FB.getLoginStatus(function (response) {
         console.log(response, this);
-        this.apiKey = response.authResponse.accessToken;
-        this.userID = response.authResponse.userID;
-        this.getFbProfile();
+        if (response.authResponse && response.authResponse.accessToken && response.authResponse.userID) {
+          const button = document.querySelector('#facebookLogin');
+          button.remove();
+
+          this.apiKey = response.authResponse.accessToken;
+          this.userID = response.authResponse.userID;
+          this.getFbProfile();
+        }
+
       }.bind(this));
     }.bind(this);
   }
@@ -56,8 +58,7 @@ export class App {
       'GET',
       {},
       function (response) {
-        console.log(response);
-        // Insert your code here
+        console.log('Profile response', response);
 
         const container = document.querySelector('[data-js-selector=\'user-name\']');
         if (response.name && container) {
@@ -70,8 +71,7 @@ export class App {
       'GET',
       {},
       function (response) {
-        console.log(response);
-        // Insert your code here
+        console.log('Friends response', response);
 
         const container = document.querySelector('[data-js-selector=\'user-friends\']');
         if (response.summary && response.summary.total_count && container) {

@@ -5,28 +5,46 @@
   <title>Birthday Reminder</title>
 </head>
 <body>
-
 <script src="assets/js/index.js"></script>
 
-<fb:login-button
-  scope="public_profile,email"
-  onlogin="window.checkLoginState();">
-</fb:login-button>
+<main>
+  <div class="container">
+    <h1 class="text-left pb-4">Birthday reminder</h1>
 
-<h1 data-js-selector='user-name'></h1>
-<p data-js-selector='user-friends'></p>
-<p data-js-selector="name-day"></p>
+    <div class="card-holder">
+      <div class="card">
+        <div class="card-header">
+          Connect your profile
+        </div>
+        <div class="card-body">
+          <h1 data-js-selector='user-name'></h1>
+          <p data-js-selector='user-friends'></p>
 
-<ul data-js-selector='birthdays'></ul>
+          <fb:login-button id="facebookLogin" scope="public_profile,email" onlogin="window.checkLoginState();"></fb:login-button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Name day today
+        </div>
+        <div class="card-body text-center">
+          <p data-js-selector="name-day"></p>
+        </div>
+      </div>
+    </div>
 
-<a href="privacy-policy.html">Privacy policy</a>
+    <div class="content">
+      <h2 class="my-4">My relatives birthdays</h2>
+      <ul class="list-group" data-js-selector='birthdays'></ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="privacy-policy.html">Privacy policy</a>
+  </div>
+</footer>
+
 </body>
 </html>
-
-
-<!--
-
-AQASrKVnT8tcSpAfmwYMwqNmbO1fkPeOytmkEi78tMWIrljD-j1GeIyKX8DxRLUhqid-PxSaZNHz-U1S9bXqlZsQCzUiUpnqdbQRttAsXrg7VmbzfjjgUJGhEKKj-nQrp2ALzLuXtzBpjT6QYFIyeyDKeIZkksBdLB3kACSLpLZnOdxoKMAWdN7nbU0JD8M7Xyji4PK77spB6jvqQmVYpOZrv4MO0fcmbT4stEmM7wEeBw
-
-IGQVJWVEpHUVE4SUR4bGtPLXR1M2UxMV9LaWdmbktFbWpYNDdyMGhCTDgxUFJtdkRDclN4S2FIam9TTC1raUllTGRQVUZAhQUpTdjZArUS0yUXM0RmxVMERFcWNUcFJjRl9salV4aXhJSXVyM242QXEyTwZDZD
--->
