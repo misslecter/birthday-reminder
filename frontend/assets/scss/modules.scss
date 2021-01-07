@@ -48,6 +48,11 @@ main {
     display: flex;
     justify-content: space-between;
     font-weight: 500;
+
+    strong + span {
+      margin-left: 5px;
+      font-size: 12px;
+    }
   }
 }
 

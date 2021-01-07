@@ -27,9 +27,10 @@ export class App {
     fetch('https://birthday-reminder-api.herokuapp.com/birthdays').then(res => res.json()).then(json => {
       const birthdays = json.birthdays;
       if (birthdays && birthdays.length) {
+        const nowY = new Date().getFullYear();
         const container = document.querySelector('[data-js-selector=\'birthdays\']');
         for (const b of birthdays) {
-          container.insertAdjacentHTML('beforeend', `<li class="list-group-item"><span>${b.name}</span><strong>${b.birthday.day}.${b.birthday.month}.</strong></li>`);
+          container.insertAdjacentHTML('beforeend', `<li class="list-group-item"><span>${b.name}</span><div><strong>${b.birthday.day}.${b.birthday.month}.</strong><span>(${nowY - b.birthday.year} years)</span></div></li>`);
         }
       }
     });
